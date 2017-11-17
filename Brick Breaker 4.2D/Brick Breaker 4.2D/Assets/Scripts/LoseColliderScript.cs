@@ -21,5 +21,6 @@ public class LoseColliderScript : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("Trigger");
+        levelmanager.LoadNewScene("Lose");
     }
 }
