@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(AudioSource))]
 public class Brick : MonoBehaviour {
     public int maxHits;
     LevelManager levelManager = new LevelManager();
     int timesHit;
 
+    AudioClip crack;
 	// Use this for initialization
 	void Start () {
-
+        crack = Resources.Load("Sounds/crack", typeof(AudioClip)) as AudioClip;
         timesHit = 0;
 
         
