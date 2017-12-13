@@ -13,12 +13,15 @@ public class Ball : MonoBehaviour
     { 
         originalPos = gameObject.transform.position;
         this.GetComponent<Rigidbody2D>().velocity = new Vector2((Random.Range(-11, 11)), 7f);
+       
 
     }
 
     
-    public static int score1;
+   public static int score1;
    public static int score2;
+   public static int score3;
+   public static int score4;
     
     
     
@@ -27,8 +30,9 @@ public class Ball : MonoBehaviour
         if (coll.gameObject.name == "goal_right")
         {
             score1++;
+            
             gameObject.transform.position = originalPos;
-            new WaitForSeconds(1);
+            
             
 
         }
@@ -36,25 +40,50 @@ public class Ball : MonoBehaviour
        else if (coll.gameObject.name == "goal_left")
         {
             score2++;
+            
             gameObject.transform.position = originalPos;
-            new WaitForSeconds(1);
+            
             
         }
-      
-
-    }
-   
-    
-    // Update is called once per frame
-    void Update()
-    {
         
-        
-
-        if (score1 == 3 || score2 == 3)
+        if (coll.gameObject.name == "goal_right_2")
         {
-            SceneManager.LoadScene("Main Menu");
+            score3++;
+
+            gameObject.transform.position = originalPos;
+        }
+
+        else if (coll.gameObject.name == "goal_left_2")
+        {
+            score4++;
+
+            gameObject.transform.position = originalPos;
         }
     }
    
+
+    
+// Update is called once per frame
+void Update()
+    {
+
+        if (score1 == 2 || score2 == 2) 
+        {
+            
+            SceneManager.LoadScene("Level 2");
+            score1 = 0;
+            score2 = 0;
+        }
+
+        if(score3 == 2 || score4 == 2)
+        {
+            
+            SceneManager.LoadScene("Main Menu");
+            score3 = 0;
+            score4 = 0;
+        }
+        
+
+    }
+
 }
