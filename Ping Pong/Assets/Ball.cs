@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class Ball : MonoBehaviour
 {
     Vector3 originalPos;
-   
-
+    
     // Use this for initialization
     void Start()
     { 
@@ -18,8 +17,9 @@ public class Ball : MonoBehaviour
     }
 
     
-    int score1;
-    int score2;
+    public static int score1;
+   public static int score2;
+    
     
     
     void OnCollisionEnter2D(Collision2D coll)
@@ -27,27 +27,34 @@ public class Ball : MonoBehaviour
         if (coll.gameObject.name == "goal_right")
         {
             score1++;
-            
             gameObject.transform.position = originalPos;
-
+            new WaitForSeconds(1);
             
+
         }
+        
        else if (coll.gameObject.name == "goal_left")
         {
             score2++;
-            
             gameObject.transform.position = originalPos;
+            new WaitForSeconds(1);
             
         }
+      
 
     }
-      
+   
+    
     // Update is called once per frame
     void Update()
     {
         
+        
 
-
+        if (score1 == 3 || score2 == 3)
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
     }
    
 }
