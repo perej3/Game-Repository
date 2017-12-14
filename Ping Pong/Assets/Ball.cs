@@ -22,7 +22,8 @@ public class Ball : MonoBehaviour
    public static int score2;
    public static int score3;
    public static int score4;
-    
+   public static int score5;
+   public static int score6;
     
     
     void OnCollisionEnter2D(Collision2D coll)
@@ -59,6 +60,19 @@ public class Ball : MonoBehaviour
 
             gameObject.transform.position = originalPos;
         }
+		if (coll.gameObject.name == "game_right_3")
+		{
+			score5++;
+			
+			gameObject.transform.position = originalPos;
+		}
+		else if(coll.gameObject.name == "goal_left_3")
+		{
+			score6++;
+			
+			gameObject.transform.position = originalPos;
+		
+		}
     }
    
 
@@ -78,10 +92,14 @@ void Update()
         if(score3 == 2 || score4 == 2)
         {
             
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("Level 3");
             score3 = 0;
             score4 = 0;
         }
+		if(score5 == 2 || score6 == 2)
+		{
+			SceneManager.LoadScene("Main Menu");
+		}
         
 
     }
