@@ -11,6 +11,8 @@ public class HUDmanager : MonoBehaviour {
     public Text scoreUIleft_2;
 	public Text scoreUI_3;
     public Text scoreUIleft_3;
+	public Text totalScore1UI;
+	public Text totalScore2UI;
     
 	// Use this for initialization
 	void Start () {
@@ -20,6 +22,9 @@ public class HUDmanager : MonoBehaviour {
         scoreUIleft_2.text = Ball.score4 + "";
 		scoreUI_3.text = Ball.score5 + "";
         scoreUIleft_3.text = Ball.score6 + "";
+		totalScore1UI = Ball.totalScore1 + "";
+		totalScore2UI = Ball.totalScore2 + "";
+		
     }
 	
 	// Update is called once per frame
@@ -30,5 +35,6 @@ public class HUDmanager : MonoBehaviour {
         scoreUIleft_2.text = Ball.score4 + "";
 		scoreUI_3.text = Ball.score5 + "";
         scoreUIleft_3.text = Ball.score6 + "";
+		
     }
 }

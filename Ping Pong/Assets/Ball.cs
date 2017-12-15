@@ -24,6 +24,8 @@ public class Ball : MonoBehaviour
    public static int score4;
    public static int score5;
    public static int score6;
+   public static int totalScore1;
+   public static int totalScore2;
     
     
     void OnCollisionEnter2D(Collision2D coll)
@@ -31,6 +33,7 @@ public class Ball : MonoBehaviour
         if (coll.gameObject.name == "goal_right")
         {
             score1++;
+			totalScore1++;
             
             gameObject.transform.position = originalPos;
             
@@ -41,7 +44,7 @@ public class Ball : MonoBehaviour
        else if (coll.gameObject.name == "goal_left")
         {
             score2++;
-            
+            totalScore2++;
             gameObject.transform.position = originalPos;
             
             
@@ -50,25 +53,35 @@ public class Ball : MonoBehaviour
         if (coll.gameObject.name == "goal_right_2")
         {
             score3++;
-
+			score3++;
+			totalScore1++;
+			totalScore1++;
             gameObject.transform.position = originalPos;
         }
 
         else if (coll.gameObject.name == "goal_left_2")
         {
             score4++;
-
+			score4++;
+			totalScore2++;
+			totalScore2++;
             gameObject.transform.position = originalPos;
         }
 		if (coll.gameObject.name == "game_right_3")
 		{
 			score5++;
+			score5++;
+			totalScore1++;
+			totalScore1++;
 			
 			gameObject.transform.position = originalPos;
 		}
 		else if(coll.gameObject.name == "goal_left_3")
 		{
 			score6++;
+			score6++;
+			totalScore2++;
+			totalScore2++;
 			
 			gameObject.transform.position = originalPos;
 		
@@ -89,16 +102,19 @@ void Update()
             score2 = 0;
         }
 
-        if(score3 == 2 || score4 == 2)
+        if(score3 == 4|| score4 == 4)
         {
             
             SceneManager.LoadScene("Level 3");
             score3 = 0;
             score4 = 0;
         }
-		if(score5 == 2 || score6 == 2)
+		if(score5 == 4 || score6 == 4)
 		{
+			
 			SceneManager.LoadScene("Main Menu");
+			score5 = 0;
+			score6 = 0;
 		}
         
 
