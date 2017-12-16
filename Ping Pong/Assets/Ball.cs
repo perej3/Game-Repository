@@ -67,7 +67,7 @@ public class Ball : MonoBehaviour
 			totalScore2++;
             gameObject.transform.position = originalPos;
         }
-		if (coll.gameObject.name == "game_right_3")
+		if (coll.gameObject.name == "goal_right_3")
 		{
 			score5++;
 			score5++;
@@ -112,7 +112,7 @@ void Update()
 		if(score5 == 4 || score6 == 4)
 		{
 			
-			SceneManager.LoadScene("Main Menu");
+			SceneManager.LoadScene("End Screen");
 			score5 = 0;
 			score6 = 0;
 		}

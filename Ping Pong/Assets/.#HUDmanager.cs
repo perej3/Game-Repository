@@ -13,7 +13,6 @@ public class HUDmanager : MonoBehaviour {
     public Text scoreUIleft_3;
 	public Text totalScore1UI;
 	public Text totalScore2UI;
-	public Text resultUI;
     
 	// Use this for initialization
 	void Start () {
@@ -23,17 +22,7 @@ public class HUDmanager : MonoBehaviour {
         scoreUIleft_2.text = Ball.score4 + "";
 		scoreUI_3.text = Ball.score5 + "";
         scoreUIleft_3.text = Ball.score6 + "";
-		totalScore1UI.text ="Player 1:   "+ Ball.totalScore1;
-		totalScore2UI.text ="Player 2:   "+ Ball.totalScore2;
-		if(Ball.totalScore1 > Ball.totalScore2){
-			resultUI.text = "Winner is Player 1";
-		}
-		else if(Ball.totalScore1 == Ball.totalScore2){
-			resultUI.text = "Both players ended in a draw";
-		}
-		else{
-			resultUI.text = "Winner is Player 2";
-		}
+
 		
     }
 	
@@ -45,7 +34,6 @@ public class HUDmanager : MonoBehaviour {
         scoreUIleft_2.text = Ball.score4 + "";
 		scoreUI_3.text = Ball.score5 + "";
         scoreUIleft_3.text = Ball.score6 + "";
-		totalScore1UI.text ="Player 1:   "+ Ball.totalScore1;
-		totalScore2UI.text ="Player 2:   "+ Ball.totalScore2;
+		
     }
 }
