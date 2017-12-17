@@ -94,7 +94,7 @@ public class Ball : MonoBehaviour
 void Update()
     {
 
-        if (score1 == 2 || score2 == 2) 
+        if (score1 == 10 || score2 == 10) 
         {
             
             SceneManager.LoadScene("Level 2");
@@ -102,14 +102,14 @@ void Update()
             score2 = 0;
         }
 
-        if(score3 == 4|| score4 == 4)
+        if(score3 == 20|| score4 == 20)
         {
             
             SceneManager.LoadScene("Level 3");
             score3 = 0;
             score4 = 0;
         }
-		if(score5 == 4 || score6 == 4)
+		if(score5 == 20 || score6 == 20)
 		{
 			
 			SceneManager.LoadScene("End Screen");
