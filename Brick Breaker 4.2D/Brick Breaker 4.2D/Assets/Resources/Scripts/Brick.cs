@@ -1,38 +1,55 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(AudioSource))]
+
 public class Brick : MonoBehaviour {
-    public int maxHits;
+
     LevelManager levelManager = new LevelManager();
+
+    public static int brickCount = 0;
+
+    public int maxHits;
+
     int timesHit;
 
-    AudioClip crack;
 	// Use this for initialization
 	void Start () {
-        crack = Resources.Load("Sounds/crack", typeof(AudioClip)) as AudioClip;
-        timesHit = 0;
 
-        
+        timesHit = 0;
+        brickCount++;
+        print(brickCount);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        timesHit++;
-        print(gameObject.name + " : " + timesHit);
-        if (timesHit >= maxHits)
-        {
-            Destroy(gameObject);
-        }
-       
-    }
-    void TestWin()
-    {
-        levelManager.LoadNextScene();
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (this.tag == "Breakable")
+        {
+            timesHit++;
+            //print(this.name + " : " + timesHit);
+
+            if (timesHit >= maxHits)
+            {                
+                brickCount--;
+                print(brickCount);
+
+                CheckWin();
+
+                Destroy(gameObject);
+            }
+        }
+    } 
+
+    public void CheckWin()
+    {
+        if (brickCount <= 0)
+        {
+            levelManager.LoadNextScene();
+        }
     }
+
 }

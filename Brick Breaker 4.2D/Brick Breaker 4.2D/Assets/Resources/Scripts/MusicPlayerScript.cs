@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class MusicPlayerScript : MonoBehaviour {
 
-    static MusicPlayerScript instance = null;
+    static MusicPlayerScript duplicateInstance = null;
+    //static bool availablePlayer = false;
 
-    private void Awake()
-    {
-        if (instance == null)
+	// Use this for initialization
+	void Start () {
+
+        //if (availablePlayer == false)
+        if (duplicateInstance == null)
         {
-            instance = this; // this current object (my Music Player)
-            DontDestroyOnLoad(gameObject);
+           DontDestroyOnLoad(gameObject);
+            duplicateInstance = this;
+            //availblePlayer = true;
         }
-        else // if not null, then a Music Player is already running
+        else
         {
             Destroy(gameObject);
             print("Duplicate Music Player is self destructing!");
         }
-    }
-
-    // Use this for initialization
-    void Start () {
-
 	}
 	
 	// Update is called once per frame
